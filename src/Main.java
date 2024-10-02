@@ -80,7 +80,6 @@ public class LibrarySystem {
         for (int i = 0; i < n - 1; i++) {
             for (int j = 0; j < n - i - 1; j++) {
                 if (books.get(j).price > books.get(j + 1).price) {
-                    // Byt plats
                     Collections.swap(books, j, j + 1);
                 }
             }
@@ -103,29 +102,23 @@ public class LibrarySystem {
     public static void main(String[] args) {
         LibrarySystem library = new LibrarySystem();
 
-        // Skapa böcker
         Book book1 = new Book("Java Programming", 299.99);
         EBook ebook1 = new EBook("Python Programming", 199.99, 5.0);
 
-        // Lägg till böcker i biblioteket
         library.addBook(book1);
         library.addBook(ebook1);
 
-        // Visa alla böcker
         System.out.println("All books:");
         library.displayAllBooks();
 
-        // Sortera böcker baserat på pris
         System.out.println("\nSorting books by price:");
         library.bubbleSortByPrice();
         library.displayAllBooks();
 
-        // Sortera böcker baserat på titel
         System.out.println("\nSorting books by title:");
         library.selectionSortByTitle();
         library.displayAllBooks();
 
-        // Sök efter en bok
         System.out.println("\nSearching for book with title 'Java':");
         Book foundBook = library.linearSearch("Java");
         if (foundBook != null) {
@@ -134,7 +127,6 @@ public class LibrarySystem {
             System.out.println("Book not found.");
         }
 
-        // Visa antal böcker
         System.out.println("\nTotal number of books: " + Book.getBookCount());
     }
 }
