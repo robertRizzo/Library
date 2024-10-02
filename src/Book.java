@@ -29,7 +29,7 @@ class Book implements BookOperations {
         return title.contains(query);
     }
 
-    public boolean search(double price) {
+    public boolean search(Double price) {
         return this.price == price;
     }
 }

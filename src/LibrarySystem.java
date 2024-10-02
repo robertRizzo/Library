@@ -1,3 +1,4 @@
+import java.awt.print.Book;
 import java.util.*;
 
 public class LibrarySystem {
@@ -14,15 +15,18 @@ public class LibrarySystem {
         }
     }
 
-    public Book linearSearch(String title) {
-        for (Book book : books) {
-            if (book.search(title)) {
-                return book;
+    public Book findBook(Object searchValue) {
+        for (Book currentBook : books) {
+            if(searchValue instanceof String && currentBook.search((String) searchValue) {
+                    return currentBook;
+                }
+            } else if (searchValue instanceof Double && currentBook.search(double) searchValue)) {
+                return currentBook;
             }
         }
         return null;
     }
-
+    
     public void bubbleSortByPrice() {
         int n = books.size();
         for (int i = 0; i < n - 1; i++) {
