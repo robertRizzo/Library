@@ -1,5 +1,5 @@
-import java.awt.print.Book;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Collections;
 
 public class LibrarySystem {
     private ArrayList<Book> books = new ArrayList<>();
@@ -15,18 +15,27 @@ public class LibrarySystem {
         }
     }
 
-    public Book findBook(Object searchValue) {
-        for (Book currentBook : books) {
-            if(searchValue instanceof String && currentBook.search((String) searchValue) {
-                    return currentBook;
-                }
-            } else if (searchValue instanceof Double && currentBook.search(double) searchValue)) {
-                return currentBook;
+    public Book linearSearch(String title) {
+        for (Book book : books) {
+            if (book.search(title)) {
+                return book;
             }
         }
         return null;
     }
-    
+
+    /*
+    public Book findBook(Object searchValue) {
+        for (Book currentBook : books) {
+            if(searchValue instanceof String && currentBook.search((String) searchValue) {
+                return currentBook;
+            }
+        } else if (searchValue instanceof Double && currentBook.search(double) searchValue)) {
+            return currentBook;
+        }
+    }
+    */
+
     public void bubbleSortByPrice() {
         int n = books.size();
         for (int i = 0; i < n - 1; i++) {
@@ -49,5 +58,36 @@ public class LibrarySystem {
             }
             Collections.swap(books, i, minIndex);
         }
+    }
+
+    public static void main(String[] args) {
+        LibrarySystem library = new LibrarySystem();
+
+        Book book1 = new Book("Java Programming", 299.99);
+        EBook ebook1 = new EBook("Python Programming", 199.99, 5.0);
+
+        library.addBook(book1);
+        library.addBook(ebook1);
+
+        System.out.println("All books:");
+        library.displayAllBooks();
+
+        System.out.println("\nSorting books by price:");
+        library.bubbleSortByPrice();
+        library.displayAllBooks();
+
+        System.out.println("\nSorting books by title:");
+        library.selectionSortByTitle();
+        library.displayAllBooks();
+
+        System.out.println("\nSearching for book with title 'Java':");
+        Book foundBook = library.linearSearch("Java");
+        if (foundBook != null) {
+            foundBook.displayDetails();
+        } else {
+            System.out.println("Book not found.");
+        }
+
+        System.out.println("\nTotal number of books: " + Book.getBookCount());
     }
 }

@@ -1,3 +1,5 @@
-interface BookOperations {
+public interface BookOperations {
+
     void displayDetails();
+
 }
