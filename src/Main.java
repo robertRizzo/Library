@@ -1,4 +1,5 @@
 public class Main {
+    /*
     public static void main(String[] args) {
         LibrarySystem library = new LibrarySystem();
 
@@ -29,4 +30,5 @@ public class Main {
 
         System.out.println("\nTotal number of books: " + Book.getBookCount());
     }
+    */
 }
