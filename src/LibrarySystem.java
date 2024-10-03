@@ -24,6 +24,18 @@ public class LibrarySystem {
         return null;
     }
 
+    /*
+    public Book findBook(Object searchValue) {
+        for (Book currentBook : books) {
+            if(searchValue instanceof String && currentBook.search((String) searchValue) {
+                return currentBook;
+            }
+        } else if (searchValue instanceof Double && currentBook.search(double) searchValue)) {
+            return currentBook;
+        }
+    }
+    */
+
     public void bubbleSortByPrice() {
         int n = books.size();
         for (int i = 0; i < n - 1; i++) {
